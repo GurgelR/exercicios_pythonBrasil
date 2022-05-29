@@ -16,8 +16,22 @@
 # Obs.: Salário Bruto - Descontos = Salário Líquido.
 # =============================================================================
 
+salario_hora = float (input ("Digite o seu salário por hora: "))
+hora_mes = float (input ("Quantas horas você trabalha por mês? "))
 
+salario = salario_hora*hora_mes
 
+IR = salario*0.11
+INSS = salario*0.08
+sindicato = salario*0.05
+descontos = IR+INSS+sindicato
+salario_liquido = salario - descontos
 
-
+print (f"""
+a) Salário bruto: R${salario:,.2f}
+b) INSS (8%): R${INSS:,.2f}
+c) Sindicato (5%): R${sindicato:,.2f}
+d) Salário líquido: R${salario_liquido:,.2f}
+e) Total descontado: R${descontos:,.2f}
+""")
 
