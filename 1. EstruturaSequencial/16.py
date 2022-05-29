@@ -10,7 +10,14 @@
 area_parede = float(input("Digite o tamanho da parede em m²: "))
 
 latas = area_parede/54
-preco = latas * 80    
+   
+
+if float.is_integer(latas): # verifica se a variável de tipo float representa um número inteiro
+    latas = int (latas)
+else:
+    latas = int(latas)+1
+
+preco = latas * 80
 
 print (f"\nVocê precisará de {latas} latas, o que custará R${preco:,.2f}")
 
