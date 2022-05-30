@@ -34,8 +34,12 @@ else:
 
 preco_a = latas * 80
 
-print (f"\nCaso queira comprar SOMENTE LATAS DE 18 LITROS, você precisará de {latas}, o que custará R${preco_a:,.2f}. A sobra será de {sobra_lata:,.2f} litro(s)")
-
+print (f"""
+SITUAÇÃO 1 - SOMENTE LATAS:
+Latas: {latas}
+Preço: R${preco_a:,.2f}
+Sobra: {sobra_lata:,.2f} litro(s)
+""")
 ###########   SITUAÇÃO 2   ###########
 
 galoes = area_parede/(6*3.6)
@@ -48,28 +52,31 @@ else:
 
 preco_b = galoes * 25
 
-print (f"\nCaso queira comprar SOMENTE GALÕES DE 3,6 LITROS, você precisará de {galoes}, o que custará R${preco_b:,.2f}. A sobra será de {sobra_galao:,.2f} litro(s)")
-
+print (f"""
+SITUAÇÃO 2 - SOMENTE GALÕES:
+Galões: {galoes}
+Preço: R${preco_b:,.2f}
+Sobra: {sobra_galao:,.2f} litro(s)
+""")
 ###########   SITUAÇÃO 3   ###########
 
 area_folga = (area_parede + area_parede*0.1) # 10% de folga
 tinta_folga = area_folga/6 # litros de tinta necessários para a pintura
 latas_folga = int(tinta_folga/18) # latas que serão utilizadas
-tinta_sobra = tinta_folga - latas_folga*18
+tinta_sobra = latas_folga*18 - tinta_folga
 galoes_folga = tinta_sobra/3.6 # galões que serão utilizados
-
-if float.is_integer(galoes_folga):
-    galoes_folga = int (galoes_folga)
-else:
-    galoes_folga = int (galoes_folga) + 1
+print (latas_folga)
+print (tinta_sobra)
 
 tinta_sobra_final = (latas_folga*18 + galoes_folga*3.6) - tinta_folga
 
 print(f"""
+SITUAÇÃO 3 - LATAS E GALÕES:
 Latas: {latas_folga}
 Galões: {galoes_folga}
-Sobra: {tinta_sobra_final:,.2f} litros
+Sobra: {tinta_sobra_final:,.2f}
 """)
 
+##### RESOLUÇÃO DA SITUAÇÃO 3 ESTÁ ERRADA
 
-print (area_folga)
+
