@@ -53,11 +53,23 @@ print (f"\nCaso queira comprar SOMENTE GALÕES DE 3,6 LITROS, você precisará d
 ###########   SITUAÇÃO 3   ###########
 
 area_folga = (area_parede + area_parede*0.1) # 10% de folga
-tinta_folga = area_folga/6 # tinta necessária
+tinta_folga = area_folga/6 # litros de tinta necessários para a pintura
 latas_folga = int(tinta_folga/18) # latas que serão utilizadas
-galoes_folga = latas_folga*18 # 
-print (f"{tinta_folga:,.2f}", " - ", latas_folga)
+tinta_sobra = tinta_folga - latas_folga*18
+galoes_folga = tinta_sobra/3.6 # galões que serão utilizados
 
+if float.is_integer(galoes_folga):
+    galoes_folga = int (galoes_folga)
+else:
+    galoes_folga = int (galoes_folga) + 1
+
+tinta_sobra_final = (latas_folga*18 + galoes_folga*3.6) - tinta_folga
+
+print(f"""
+Latas: {latas_folga}
+Galões: {galoes_folga}
+Sobra: {tinta_sobra_final:,.2f} litros
+""")
 
 
 print (area_folga)
